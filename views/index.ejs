@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RIADATTAMENTI IMG CAMPAGNE MEDIA</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-light">
+
+<div class="container py-4">
+    <div class="row">
+        <div class="col-12 text-center mb-4">
+            <h1 class="display-4 fw-bold esselunga-font fs-3"><i class="bi bi-images"></i> RIADATTAMENTI IMG CAMPAGNE MEDIA</h1>
+            <p class="lead"></p>
+        </div>
+    </div>
+  <div class="row">
+    
+    <!-- Control Panel -->
+    <div class="col-md-3 mb-3">
+      <div class="card p-3 shadow-sm text-center">
+
+  <h5 class="card-title mb-3">SELEZIONA IMMAGINE</h5>
+  <form id="uploadForm" enctype="multipart/form-data">
+    <div class="mb-2 text-center mb-4">
+      <label for="imageInput" class="btn btn-outline-primary">
+        <i class="bi bi-upload"></i> Carica Immagine
+      </label>
+      <input type="file" id="imageInput" class="d-none" name="image" accept="image/*" required>
+    </div>
+  </form>
+
+  <div class="accordion" id="toolsAccordion">
+
+    <!-- Tipo Immagine -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTipo">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTipo" aria-expanded="true" aria-controls="collapseTipo">
+          <i class="bi bi-wrench me-2"></i> TIPO DI IMMAGINE
+        </button>
+      </h2>
+      <div id="collapseTipo" class="accordion-collapse collapse show" aria-labelledby="headingTipo" data-bs-parent="#toolsAccordion">
+        <div class="accordion-body d-flex gap-2 justify-content-center">
+          <button id="coverMode" class="btn btn-outline-secondary" style="background-color: rgb(14, 110, 253); color: white;">
+              <i class="bi bi-card-image"></i> COVER
+          </button>
+          <button id="productMode" class="btn btn-outline-secondary" style="background-color: rgb(240, 240, 240); color: rgb(0, 0, 0);">
+              <i class="bi bi-box-seam"></i> PRODOTTO
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tedesco -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingGerman">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGerman" aria-expanded="false" aria-controls="collapseGerman">
+          🇩🇪 TEDESCO
+        </button>
+      </h2>
+      <div id="collapseGerman" class="accordion-collapse collapse" aria-labelledby="headingGerman" data-bs-parent="#toolsAccordion">
+        <div class="accordion-body text-center">
+          <input class="form-check-input me-2" type="checkbox" id="germanMode">
+          <label class="form-check-label fw-bold mb-0" for="germanMode">
+            Attiva versione tedesca
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dimensioni Immagine -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingDim">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDim" aria-expanded="false" aria-controls="collapseDim">
+          <i class="bi bi-search me-2"></i> DIMENSIONI IMMAGINE
+        </button>
+      </h2>
+      <div id="collapseDim" class="accordion-collapse collapse" aria-labelledby="headingDim" data-bs-parent="#toolsAccordion">
+        <div class="accordion-body d-flex justify-content-between">
+          <button id="increase" class="btn btn-success w-100 me-1">+</button>
+          <button id="decrease" class="btn btn-warning w-100 ms-1">-</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spostamento Verticale -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingVertical">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVertical" aria-expanded="false" aria-controls="collapseVertical">
+
+           <i class="bi bi-arrows-expand"></i>&nbsp;&nbsp;&nbsp;Sposta Verticalmente
+        </button>
+      </h2>
+      <div id="collapseVertical" class="accordion-collapse collapse" aria-labelledby="headingVertical" data-bs-parent="#toolsAccordion">
+        <div class="accordion-body text-center">
+          <button id="arrowUp" class="btn btn-light mb-1">↑</button>
+          <input type="range" id="verticalSlider" class="form-range" min="0" max="0" value="0">
+          <button id="arrowDown" class="btn btn-light mt-1">↓</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spostamento Orizzontale -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingHorizontal">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHorizontal" aria-expanded="false" aria-controls="collapseHorizontal">
+         <i class="bi bi-arrows-angle-contract"></i>&nbsp;&nbsp;&nbsp;Sposta Orizzontalmente
+        </button>
+      </h2>
+      <div id="collapseHorizontal" class="accordion-collapse collapse" aria-labelledby="headingHorizontal" data-bs-parent="#toolsAccordion">
+        <div class="accordion-body text-center">
+          <button id="arrowLeft" class="btn btn-light mb-1">←</button>
+          <input type="range" id="horizontalSlider" class="form-range" min="0" max="0" value="0">
+          <button id="arrowRight" class="btn btn-light mt-1">→</button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Copertura Scritte -->
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingCoverText">
+    <button class="accordion-button collapsed" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseCoverText"
+      aria-expanded="false"
+      aria-controls="collapseCoverText">
+      <i class="bi bi-layout-text-window-reverse"></i>&nbsp;&nbsp;&nbsp;COPERTURA SCRITTE
+    </button>
+  </h2>
+
+  <div id="collapseCoverText" class="accordion-collapse collapse"
+    aria-labelledby="headingCoverText"
+    data-bs-parent="#toolsAccordion">
+
+    <div class="accordion-body text-center">
+
+      <!-- SUPERIORE -->
+      <div class="mb-3">
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" id="topCoverToggle">
+          <label class="form-check-label fw-bold">Copertura Superiore</label>
+        </div>
+
+        <div class="d-flex justify-content-center gap-2">
+          <button id="topCoverMinus" class="btn btn-warning btn-sm">-</button>
+          <span id="topCoverValue" class="fw-bold align-self-center">0 px</span>
+          <button id="topCoverPlus" class="btn btn-success btn-sm">+</button>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- INFERIORE -->
+      <div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" id="bottomCoverToggle">
+          <label class="form-check-label fw-bold">Copertura Inferiore</label>
+        </div>
+
+        <div class="d-flex justify-content-center gap-2">
+          <button id="bottomCoverMinus" class="btn btn-warning btn-sm">-</button>
+          <span id="bottomCoverValue" class="fw-bold align-self-center">0 px</span>
+          <button id="bottomCoverPlus" class="btn btn-success btn-sm">+</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  </div> <!-- fine accordion -->
+
+  <hr class="my-2" style="border-top: 1px solid #d4af37; opacity: 1;">
+
+  <button id="download" class="btn btn-primary w-100 mb-2">
+    Crea Immagine <span id="germanFlagCreate" style="display:none;"> 🇩🇪</span>
+  </button>
+
+  <button id="tutorialBtn" class="btn btn-outline-primary w-100">
+    <i class="bi bi-info-circle"></i> info tutorial
+  </button>
+
+</div>
+    </div>
+
+    <!-- Preview -->
+    <div class="col-md-9">
+      <div class="image-container mx-auto">
+        <div id="canvasWrapper">
+            <div id="germanTopMargin" style="display:none;"></div>
+<img id="uploadedImage" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<script src="/js/script.js"></script>
+<div id="germanOverlay" style="
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+">
+  <div style="
+    background:white;
+    padding:30px 50px;
+    border-radius:15px;
+    border:2px solid green;
+    font-size:20px;
+    font-weight:bold;
+    color:blue;
+  ">
+    🇩🇪 VERSIONE TEDESCA ATTIVATA 🇩🇪
+  </div>
+
+
+
+
+
+
+</div>
+<div id="tutorialOverlay" style="
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+">
+
+  <div id="tutorialContent" style="
+    background:white;
+    width:90%;
+    max-width:500px;
+    padding:30px;
+    border-radius:12px;
+    position:relative;
+  ">
+
+    <button id="closeTutorial" style="
+      position:absolute;
+      top:10px;
+      right:15px;
+      border:none;
+      background:none;
+      font-size:22px;
+      cursor:pointer;
+    ">
+      &times;
+    </button>
+
+  <h5 class="mb-3 fw-bold">TUTORIAL UTILIZZO</h5>
+
+    <ul class="list-unstyled">
+        <li class="mb-2">
+            <i class="bi bi-folder2-open me-2 text-primary"></i>
+            <strong>Seleziona immagine:</strong> usa il pulsante "Scegli file" per caricare l'immagine da modificare.
+        </li>
+
+          <li class="mb-2">
+           <i class="bi bi-check me-2 text-primary"></i>
+            <strong>Scegli il tipo di immagine da riadattare: <strong>COVER</strong> o <strong>PRODOTTO</strong>.</strong> Questo determinerà le dimensioni e il posizionamento dell'immagine all'interno del riquadro 1129x1080 o 1000x826.
+        </li>
+
+
+        <li class="mb-2">
+            <i class="bi bi-arrows-angle-expand me-2 text-success"></i>
+            <strong>Regola la dimensione:</strong> usa i bottoni <code>+</code> e <code>-</code> per aumentare o ridurre la larghezza dell'immagine.
+        </li>
+        <li class="mb-2">
+            <i class="bi bi-arrows-move me-2 text-warning"></i>
+            <strong>Sposta l'immagine:</strong> utilizza gli slider o le frecce per posizionare verticalmente e orizzontalmente l'immagine all'interno del riquadro 1129x1080 o 1000x826.
+        </li>
+        <li class="mb-2">
+            <i class="bi bi-flag me-2 text-danger"></i>
+            <strong>Versione Tedesca:</strong> se necessario, flagga la checkbox "TEDESCO" sotto i bottoni di ingrandimento per attivare la versione con distanziatore (<i>evita così di fare overlapping su testi</i>).
+        </li>
+        <li class="mb-2">
+            <i class="bi bi-download me-2 text-primary"></i>
+            <strong>Salva immagine:</strong> una volta che l'immagine è pronta, clicca "Crea Immagine"; il file verrà scaricato nella cartella download del tuo pc.
+        </li>
+    </ul>
+  </div>
+</div>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

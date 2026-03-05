@@ -1,0 +1,89 @@
+.image-container { 
+  width: 1129px; 
+  height: 1080px; 
+  border: 2px solid #000; 
+  background: #fff; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  overflow: hidden; 
+  transform: scale(0.6);
+  transform-origin: top left;
+}
+
+#canvasWrapper { 
+  width: 100%; 
+  height: 100%; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+#uploadedImage { 
+  height: auto;
+  width: auto;
+  max-width: none;
+  max-height: none;
+  display: block;
+}
+
+
+#germanOverlay {
+  background: #ffffff;
+  border: 2px solid green;
+  border-radius: 10px;
+  color: blue;
+  z-index: 9999;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+
+#germanTopMargin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px; /* altezza del margine TEDESCO */
+  background: rgba(255,0,0,0.2); /* rosso trasparente */
+  pointer-events: none; /* non interferisce con click/drag */
+  z-index: 5;
+}
+
+
+.esselunga-font {
+  font-family: 'Esselunga', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+
+/* Accordion full width */
+.accordion-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Card tools responsive */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+
+  .image-container {
+    transform: scale(0.45);
+    transform-origin: top left;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-container {
+    transform: scale(0.35);
+  }
+
+  #toolsAccordion .accordion-body button,
+  #toolsAccordion .accordion-body input[type="range"] {
+    width: 100% !important;
+    margin-bottom: 5px;
+  }
+}
