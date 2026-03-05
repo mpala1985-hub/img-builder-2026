@@ -7,7 +7,6 @@
   justify-content: center; 
   align-items: center; 
   overflow: hidden; 
-  transform: scale(0.6);
   transform-origin: top left;
 }
 
@@ -26,7 +25,6 @@
   max-height: none;
   display: block;
 }
-
 
 #germanOverlay {
   background: #ffffff;
@@ -85,5 +83,27 @@
   #toolsAccordion .accordion-body input[type="range"] {
     width: 100% !important;
     margin-bottom: 5px;
+  }
+}
+
+
+/* preview desktop */
+@media (min-width: 1200px) {
+  .image-container{
+    transform: scale(0.6);
+  }
+}
+
+/* preview tablet */
+@media (max-width: 1199px) {
+  .image-container{
+    transform: scale(0.45);
+  }
+}
+
+/* preview mobile */
+@media (max-width: 768px) {
+  .image-container{
+    transform: scale(0.30);
   }
 }
