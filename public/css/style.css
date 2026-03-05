@@ -7,7 +7,7 @@
   justify-content: center; 
   align-items: center; 
   overflow: hidden; 
-  transform-origin: top left;
+  transform-origin: top center;
 }
 
 #canvasWrapper { 
@@ -105,5 +105,27 @@
 @media (max-width: 768px) {
   .image-container{
     transform: scale(0.30);
+  }
+}
+
+
+/* desktop */
+@media (min-width: 1200px) {
+  .image-container{
+    transform: scale(0.6);
+  }
+}
+
+/* tablet */
+@media (max-width: 1199px) {
+  .image-container{
+    transform: scale(0.45);
+  }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .image-container{
+    transform: scale(0.28);
   }
 }
